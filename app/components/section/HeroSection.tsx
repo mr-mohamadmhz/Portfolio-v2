@@ -1,9 +1,8 @@
 "use client";
-import React from "react";
-import { Box, Typography, Button } from "@mui/material";
-import { Facebook, Twitter, Instagram } from "@mui/icons-material";
-import Image from "next/image";
+import { Facebook, Instagram, Twitter } from "@mui/icons-material";
+import { Box, Button, Typography } from "@mui/material";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import { FaCss3Alt, FaHtml5, FaJs, FaNodeJs, FaReact } from "react-icons/fa";
 
 const MotionDiv = dynamic(
@@ -27,7 +26,8 @@ export default function HeroSection() {
     <Box
       display={"flex"}
       justifyContent={"center"}
-      className="dark:bg-gray-900 dark:text-white bg-white text-black"
+      alignItems={"center"}
+      className="h-screen dark:bg-gray-900 dark:text-white bg-white text-black"
     >
       <Box
         display="flex"
@@ -38,16 +38,37 @@ export default function HeroSection() {
         gap={{ xs: 4, md: 0 }}
         className="container"
       >
-        <Box textAlign={{ xs: "left" }} flex={1} gap={4}>
+        <Box
+          display={"flex"}
+          textAlign={{ xs: "left" }}
+          flex={1}
+          flexDirection={"column"}
+          gap={2}
+        >
           <Typography variant="h6" gutterBottom>
             Hi, I'm Mohammad
           </Typography>
-          <Typography variant="h3" gutterBottom>
+          <Typography
+            m={0}
+            fontSize={{ xs: "1.75rem", sm: "2.5rem", lg: "3rem" }}
+            fontWeight={700}
+            gutterBottom
+          >
             Frontend Developer
+          </Typography>
+          <Typography
+            m={0}
+            fontSize={{ xs: "1rem" }}
+            fontWeight={500}
+            gutterBottom
+            width={{ sm: "50%" }}
+          >
+            I am a front-end developer passionate about building modern and
+            user-friendly web applications.
           </Typography>
           <Box
             display="flex"
-            gap={4}
+            gap={2}
             justifyContent={{ xs: "flex-start" }}
             alignItems={"center"}
           >
@@ -56,7 +77,7 @@ export default function HeroSection() {
             <Twitter fontSize="large" />
             <Instagram fontSize="large" />
           </Box>
-          <Box mt={2} display="flex" gap={2}>
+          <Box display="flex" gap={2}>
             <Button variant="contained">Hire Me</Button>
             <Button variant="outlined">Portfolio</Button>
           </Box>

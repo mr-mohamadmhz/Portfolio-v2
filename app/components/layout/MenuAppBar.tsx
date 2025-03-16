@@ -61,77 +61,92 @@ export default function ResponsiveAppBar() {
 
   return (
     <Box>
-      <AppBar position="static">
-        <Toolbar className="flex justify-between dark:bg-gray-900 dark:text-white bg-white text-black">
-          <Typography variant="h6">Logo</Typography>
+      <AppBar
+        position="fixed"
+        sx={{
+          boxShadow: 3,
+          backdropFilter: "blur(10px)",
+          background: "rgba(255, 255, 255, 0.8)",
+        }}
+      >
+        <Box
+          display={"flex"}
+          justifyContent={"center"}
+          className={
+            "dark:bg-gray-900 bg-white dark:border-b-gray-950 border-b-gray-400 border-b"
+          }
+        >
+          <Toolbar className="!px-8 container flex justify-between dark:bg-gray-900 dark:text-white bg-white text-black">
+            <Typography variant="h6">Logo</Typography>
 
-          {!isMobile && (
-            <Box
-              sx={{
-                flexGrow: 1,
-                display: "flex",
-                justifyContent: "center", // آیتم‌ها را وسط‌چین می‌کنیم
-              }}
-            >
-              {menuItems.map(item => (
-                <Button key={item} color="inherit">
-                  {item}
-                </Button>
-              ))}
-            </Box>
-          )}
-
-          {!isMobile && (
-            <Box className="flex items-center">
-              <Button
-                className="!bg-purple-800"
+            {!isMobile && (
+              <Box
                 sx={{
-                  borderRadius: "0.5rem",
-                  color: "white",
+                  flexGrow: 1,
+                  display: "flex",
+                  justifyContent: "center",
                 }}
               >
-                Hire Me
-              </Button>
-              <span className="px-4">|</span>
-              <Switch
-                checked={darkMode}
-                onChange={toggleDarkMode}
-                sx={{
-                  width: 60,
-                  height: 34,
-                  padding: 0,
-                  "& .MuiSwitch-switchBase": {
-                    padding: "4px !important",
-                    "&.Mui-checked": {
-                      transform: "translateX(26px) !important",
-                    },
-                  },
-                  "& .MuiSwitch-thumb": {
-                    width: 26,
-                    height: 26,
-                    boxShadow: "none",
-                  },
-                  "& .MuiSwitch-track": {
-                    borderRadius: 17,
-                    backgroundColor: darkMode ? "#374151" : "#d1d5db",
-                    opacity: 1,
-                  },
-                }}
-              />
-            </Box>
-          )}
+                {menuItems.map(item => (
+                  <Button key={item} color="inherit">
+                    {item}
+                  </Button>
+                ))}
+              </Box>
+            )}
 
-          {isMobile && (
-            <IconButton
-              size="large"
-              edge="end"
-              color="inherit"
-              onClick={() => setDrawerOpen(true)}
-            >
-              <MenuIcon />
-            </IconButton>
-          )}
-        </Toolbar>
+            {!isMobile && (
+              <Box className="flex items-center">
+                <Button
+                  className="!bg-purple-800"
+                  sx={{
+                    borderRadius: "0.5rem",
+                    color: "white",
+                  }}
+                >
+                  Hire Me
+                </Button>
+                <span className="px-4">|</span>
+                <Switch
+                  checked={darkMode ?? false}
+                  onChange={toggleDarkMode}
+                  sx={{
+                    width: 60,
+                    height: 34,
+                    padding: 0,
+                    "& .MuiSwitch-switchBase": {
+                      padding: "4px !important",
+                      "&.Mui-checked": {
+                        transform: "translateX(26px) !important",
+                      },
+                    },
+                    "& .MuiSwitch-thumb": {
+                      width: 26,
+                      height: 26,
+                      boxShadow: "none",
+                    },
+                    "& .MuiSwitch-track": {
+                      borderRadius: 17,
+                      backgroundColor: darkMode ? "#374151" : "#d1d5db",
+                      opacity: 1,
+                    },
+                  }}
+                />
+              </Box>
+            )}
+
+            {isMobile && (
+              <IconButton
+                size="large"
+                edge="end"
+                color="inherit"
+                onClick={() => setDrawerOpen(true)}
+              >
+                <MenuIcon />
+              </IconButton>
+            )}
+          </Toolbar>
+        </Box>
       </AppBar>
 
       <Drawer
@@ -154,7 +169,7 @@ export default function ResponsiveAppBar() {
           <Box className="flex justify-between items-center border-b pb-2 mb-2">
             <label>{darkMode ? "Light Mode" : "Dark Mode"}</label>
             <Switch
-              checked={darkMode}
+              checked={darkMode ?? false}
               onChange={toggleDarkMode}
               sx={{
                 width: 60,

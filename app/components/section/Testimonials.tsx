@@ -2,8 +2,8 @@ import CodeIcon from "@mui/icons-material/Code";
 import SchoolIcon from "@mui/icons-material/School";
 import WorkIcon from "@mui/icons-material/Work";
 import { Box, Typography } from "@mui/material";
-import CustomBox from "../common/CustomBox";
 import CustomSwiper from "../common/CustomSwiper";
+import CustomBox from "../common/CustomBox";
 
 const boxesData = [
   {
@@ -21,22 +21,37 @@ const boxesData = [
     title: "Continuous Learning",
     description: "Courses and certifications I have completed",
   },
+  {
+    icon: <WorkIcon />,
+    title: "Professional Experience",
+    description: "Details about professional experience",
+  },
+  {
+    icon: <CodeIcon />,
+    title: "Technical Skills",
+    description: "Skills and tools that I have expertise in",
+  },
+  {
+    icon: <SchoolIcon />,
+    title: "Continuous Learning",
+    description: "Courses and certifications I have completed",
+  },
 ];
 
-const AboutSection = () => {
+const Testimonials = () => {
   return (
     <Box
-      display={"flex"}
-      justifyContent={"center"}
-      alignItems={"center"}
-      className="px-8 h-screen dark:bg-gray-800 dark:text-white bg-fuchsia-50 text-black"
+      className="relative px-8 dark:bg-gray-900 dark:text-white bg-white text-black"
+      sx={{ padding: { xs: 2, md: 6 }, textAlign: "center" }}
     >
+      <Box className="absolute z-0 right-0 bottom-0 dark:bg-gray-800 bg-fuchsia-50 w-[90%] h-[70%]" />
+      <Box className="absolute z-0 right-0 bottom-0 dark:bg-indigo-800 bg-bg-indigo-950 w-[60%] h-[20%]" />
       <Box
-        display={"flex"}
+        display="flex"
         flexDirection={"column"}
-        justifyContent={"space-between"}
-        alignItems={"center"}
-        className="h-3/4 container"
+        justifyContent="center"
+        alignItems="center"
+        className="relative z-10 h-screen"
       >
         <Box display={"flex"} justifyContent={"center"}>
           <Typography
@@ -46,54 +61,34 @@ const AboutSection = () => {
             gutterBottom
             style={{
               width: "fit-content",
-              marginLeft: "auto",
-              marginRight: "auto",
             }}
           >
-            About Me
+            Testimonials
             <div
               style={{
-                width: "100%",
+                width: "70%",
                 height: "8px",
                 backgroundColor: "#89c4ff",
                 borderRadius: "25px",
                 marginTop: "8px",
+                marginLeft: "auto",
+                marginRight: "auto",
               }}
             />
           </Typography>
         </Box>
-
-        <Box
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          gap={{ xs: 4, md: 8 }}
-        >
-          <Typography fontSize={{ xs: "4rem", sm: "8rem" }} fontWeight="bold">
-            3+
-          </Typography>
-          <Typography
-            fontSize={{ xs: "1.25rem", sm: "2.5rem", lg: "2rem", xl: "3rem" }}
-            fontWeight="600"
-            sx={{ whiteSpace: "pre-line" }}
-          >
-            {"Years\nWorking\nExperience"}
-          </Typography>
-        </Box>
-
-        <Typography
-          variant="body1"
-          className="text-start lg:w-1/2"
-          sx={{ mt: 2, mb: 4 }}
-        >
-          I am a frontend developer with a passion for building beautiful,
-          user-friendly web applications. I focus on creating seamless,
-          responsive interfaces that enhance the user experience. With a strong
-          understanding of modern web technologies, I strive to craft intuitive
-          and accessible designs that perform well across devices.
+        <Typography variant="body1" maxWidth="600px" mx="auto" mb={4}>
+          Discover what our valued customers have to say about their experience
+          with us. Their feedback and testimonials reflect our commitment to
+          excellence and customer satisfaction. Let their words inspire your
+          trust in our services!
         </Typography>
-
-        <Box display="flex" width={"100%"}>
+        <Box
+          display={"flex"}
+          justifyContent={"end"}
+          width="80%"
+          overflow="hidden"
+        >
           <CustomSwiper
             slides={boxesData.map((item, index) => (
               <CustomBox
@@ -113,4 +108,4 @@ const AboutSection = () => {
   );
 };
 
-export default AboutSection;
+export default Testimonials;

@@ -21,7 +21,7 @@ const floatingVariants = {
   },
 };
 
-export default function HeroSection() {
+export default function Hero() {
   return (
     <Box
       display={"flex"}

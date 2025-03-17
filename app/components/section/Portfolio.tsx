@@ -1,5 +1,15 @@
-import { Box, ImageList, ImageListItem, Typography, Button } from "@mui/material";
+"use client";
+import {
+  Box,
+  Button,
+  ImageList,
+  ImageListItem,
+  Tab,
+  Tabs,
+  Typography,
+} from "@mui/material";
 import Image from "next/image";
+import * as React from "react";
 
 const itemData = [
   {
@@ -64,15 +74,55 @@ const itemData = [
   },
 ];
 
-const PortfolioSection = () => {
+const Portfolio = () => {
+  const [value, setValue] = React.useState("one");
+
+  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    setValue(newValue);
+  };
+
   return (
     <Box
       display="flex"
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
-      className="h-screen px-8 dark:bg-gray-800 dark:text-white bg-white text-black"
+      gap={4}
+      className="h-screen px-8 dark:bg-gray-900 dark:text-white bg-white text-black"
     >
+      <Box display={"flex"} justifyContent={"center"}>
+        <Typography
+          variant="h4"
+          align="center"
+          fontWeight="bold"
+          gutterBottom
+          style={{
+            width: "fit-content",
+          }}
+        >
+          Portfolio
+          <div
+            style={{
+              width: "70%",
+              height: "8px",
+              backgroundColor: "#89c4ff",
+              borderRadius: "25px",
+              marginTop: "8px",
+              marginLeft: "auto",
+              marginRight: "auto",
+            }}
+          />
+        </Typography>
+      </Box>
+      <Typography
+        variant="body1"
+        className="text-center lg:w-1/2"
+        sx={{ mt: 2, mb: 4 }}
+      >
+        In the Portfolio section, you can explore my front-end development
+        projects, featuring modern web designs and interactive user interfaces.
+        🚀
+      </Typography>
       <Box
         display="flex"
         flexDirection="column"
@@ -80,24 +130,40 @@ const PortfolioSection = () => {
         justifyContent="center"
         className="container"
       >
-        <Typography
-          fontSize={{ xs: "1.5rem", sm: "2rem", lg: "2.5rem" }}
-          fontWeight="bold"
-          mb={4}
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          textColor="secondary"
+          indicatorColor="secondary"
+          aria-label="secondary tabs example"
+          sx={{ marginY: 5 }}
         >
-          Image Gallery
-        </Typography>
-
+          <Tab value="one" label="Item One" />
+          <Tab value="two" label="Item Two" />
+          <Tab value="three" label="Item Three" />
+        </Tabs>
         <Box
           sx={{
             width: "100%",
-            height: "70vh", // ارتفاع ثابت برای بخش گالری
-            overflowY: "auto", // فعال‌سازی اسکرول عمودی
-            paddingRight: "16px", // ایجاد فضا برای نوار اسکرول
+            height: "50vh",
+            overflowY: "auto",
+            paddingRight: "16px",
           }}
         >
-          <ImageList variant="masonry" cols={3} gap={8}>
-            {itemData.map((item) => (
+          <ImageList
+            variant="masonry"
+            sx={{
+              columnCount: {
+                xs: "1 !important",
+                sm: "2 !important",
+                md: "3 !important",
+                lg: "4 !important",
+                xl: "5 !important",
+              },
+            }}
+            gap={4}
+          >
+            {itemData.map(item => (
               <ImageListItem key={item.img}>
                 <Box
                   sx={{
@@ -120,13 +186,18 @@ const PortfolioSection = () => {
                   <Box
                     sx={{
                       display: "flex",
-                      justifyContent: "space-between", // فاصله دادن بین متن‌ها و دکمه
+                      justifyContent: "space-between",
                       alignItems: "center",
                       marginTop: 1,
                     }}
                   >
                     <Box sx={{ textAlign: "left", flex: 1 }}>
-                      <Typography variant="h6" fontWeight="bold" color="white" mb={1}>
+                      <Typography
+                        variant="h6"
+                        fontWeight="bold"
+                        color="white"
+                        mb={1}
+                      >
                         {item.title}
                       </Typography>
                       <Typography variant="body2" color="white" mb={2}>
@@ -141,7 +212,7 @@ const PortfolioSection = () => {
                         fontWeight: "bold",
                         borderRadius: 2,
                         padding: "8px 16px",
-                        minWidth: "120px", // عرض حداقل برای دکمه
+                        minWidth: "120px",
                       }}
                     >
                       View More
@@ -157,4 +228,4 @@ const PortfolioSection = () => {
   );
 };
 
-export default PortfolioSection;
+export default Portfolio;

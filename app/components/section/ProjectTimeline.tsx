@@ -2,13 +2,13 @@ import { Box, Typography } from "@mui/material";
 import { FiCheckCircle } from "react-icons/fi";
 import { LuAlarmClock } from "react-icons/lu";
 
-const ProjectTimelineSection = () => {
+const ProjectTimeline = () => {
   return (
     <Box
       display="flex"
       justifyContent="center"
       alignItems="center"
-      className="px-8 h-screen dark:bg-gray-800 dark:text-white bg-white text-black"
+      className="px-8 h-screen dark:bg-gray-900 dark:text-white bg-white text-black"
     >
       <Box
         display="grid"
@@ -105,4 +105,4 @@ const ProjectTimelineSection = () => {
   );
 };
 
-export default ProjectTimelineSection;
+export default ProjectTimeline;

@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Paper, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { ReactNode } from "react";
 
 interface CustomBoxProps {
@@ -7,6 +7,8 @@ interface CustomBoxProps {
   icon: ReactNode;
   title: string;
   description: string;
+  width?: number | string;
+  height?: number | string;
 }
 
 const CustomBox: React.FC<CustomBoxProps> = ({
@@ -14,6 +16,8 @@ const CustomBox: React.FC<CustomBoxProps> = ({
   icon,
   title,
   description,
+  width = 250,
+  height = 200,
 }) => {
   return (
     <Box
@@ -23,8 +27,8 @@ const CustomBox: React.FC<CustomBoxProps> = ({
         flexDirection: "column",
         alignItems: "flex-start",
         justifyContent: "flex-start",
-        width: 250,
-        height: 200,
+        width,
+        height,
         borderRadius: "16px",
         boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
         overflow: "hidden",

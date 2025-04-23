@@ -1,5 +1,7 @@
 import MenuAppBar from "./components/layout/MenuAppBar";
 import About from "./components/section/About";
+import Blog from "./components/section/Blog";
+import ContactUs from "./components/section/ContactUs";
 import Hero from "./components/section/Hero";
 import Portfolio from "./components/section/Portfolio";
 import ProjectTimeline from "./components/section/ProjectTimeline";
@@ -16,6 +18,8 @@ function Home() {
       <Portfolio />
       <Services />
       <Testimonials />
+      <Blog />
+      <ContactUs />
     </div>
   );
 }

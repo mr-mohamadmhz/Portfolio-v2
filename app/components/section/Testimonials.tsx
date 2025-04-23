@@ -41,11 +41,10 @@ const boxesData = [
 const Testimonials = () => {
   return (
     <Box
-      className="relative px-8 dark:bg-gray-900 dark:text-white bg-white text-black"
+      className="relative px-8 dark:bg-gray-800 dark:text-white bg-white text-black"
       sx={{ padding: { xs: 2, md: 6 }, textAlign: "center" }}
     >
-      <Box className="absolute z-0 right-0 bottom-0 dark:bg-gray-800 bg-fuchsia-50 w-[90%] h-[70%]" />
-      <Box className="absolute z-0 right-0 bottom-0 dark:bg-indigo-800 bg-bg-indigo-950 w-[60%] h-[20%]" />
+      <Box className="absolute z-0 right-0 bottom-0 dark:bg-[#211C84] bg-[#211C84] bg-bg-indigo-950 w-[70%] h-[40%]" />
       <Box
         display="flex"
         flexDirection={"column"}
@@ -53,7 +52,7 @@ const Testimonials = () => {
         alignItems="center"
         className="relative z-10 h-screen"
       >
-        <Box display={"flex"} justifyContent={"center"}>
+        <Box display={"flex"} justifyContent={"center"} marginTop="16px">
           <Typography
             variant="h4"
             align="center"
@@ -84,10 +83,10 @@ const Testimonials = () => {
           trust in our services!
         </Typography>
         <Box
-          display={"flex"}
-          justifyContent={"end"}
-          width="80%"
+          width="100%"
           overflow="hidden"
+          display={"flex"}
+          justifyContent={{ xs: "center" }}
         >
           <CustomSwiper
             slides={boxesData.map((item, index) => (
